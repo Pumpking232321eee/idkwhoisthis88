@@ -1,0 +1,11 @@
+game:GetService("UserInputService").InputBegan:connect(function(inputObject, gameProcessedEvent)
+ if gameProcessedEvent then return end
+ if inputObject.KeyCode == Enum.KeyCode.C then
+  local anticrash = game:GetService("Players").LocalPlayer.PlayerScripts.ClientGunReplicator
+  anticrash.Disabled = not anticrash.Disabled
+  game.StarterGui:SetCore("SendNotification", {
+       Title = "Anti-Crash";
+       Text = tostring(anticrash.Disabled);
+  })
+ end
+end)
